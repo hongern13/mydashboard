@@ -22,7 +22,8 @@
     "projectType": "generated_static"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^1.30.3",
+    "@supabase/supabase-js": "^1.30.6",
+    "prettier-plugin-svelte": "^2.6.0",
     "prettier": "^2.5.1"
   }
 }
