@@ -7,7 +7,7 @@
   <p>This is your homepage.</p>
 
   {#if message}
-    <p id="message">{message}</p>
+  <p id="message">{message}</p>
   {/if}
 </section>
 
