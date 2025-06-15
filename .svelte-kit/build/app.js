@@ -22,9 +22,9 @@ export function init(settings = default_settings) {
 		amp: false,
 		dev: false,
 		entry: {
-			file: assets + "/_app/start-2262c851.js",
+			file: assets + "/_app/start-9422959f.js",
 			css: [assets + "/_app/assets/start-61d1577b.css"],
-			js: [assets + "/_app/start-2262c851.js",assets + "/_app/chunks/vendor-1fe2163d.js"]
+			js: [assets + "/_app/start-9422959f.js",assets + "/_app/chunks/vendor-2c79cd28.js",assets + "/_app/chunks/singletons-12a22614.js"]
 		},
 		fetched: undefined,
 		floc: false,
@@ -71,14 +71,28 @@ const empty = () => ({});
 
 const manifest = {
 	assets: [],
-	layout: ".svelte-kit/build/components/layout.svelte",
+	layout: "src/routes/__layout.svelte",
 	error: ".svelte-kit/build/components/error.svelte",
 	routes: [
 		{
 						type: 'page',
 						pattern: /^\/$/,
 						params: empty,
-						a: [".svelte-kit/build/components/layout.svelte", "src/routes/index.svelte"],
+						a: ["src/routes/__layout.svelte", "src/routes/index.svelte"],
+						b: [".svelte-kit/build/components/error.svelte"]
+					},
+		{
+						type: 'page',
+						pattern: /^\/signup\/?$/,
+						params: empty,
+						a: ["src/routes/__layout.svelte", "src/routes/signup.svelte"],
+						b: [".svelte-kit/build/components/error.svelte"]
+					},
+		{
+						type: 'page',
+						pattern: /^\/login\/?$/,
+						params: empty,
+						a: ["src/routes/__layout.svelte", "src/routes/login.svelte"],
 						b: [".svelte-kit/build/components/error.svelte"]
 					}
 	]
@@ -94,10 +108,10 @@ const get_hooks = hooks => ({
 });
 
 const module_lookup = {
-	".svelte-kit/build/components/layout.svelte": () => import("./components/layout.svelte"),".svelte-kit/build/components/error.svelte": () => import("./components/error.svelte"),"src/routes/index.svelte": () => import("../../src/routes/index.svelte")
+	"src/routes/__layout.svelte": () => import("../../src/routes/__layout.svelte"),".svelte-kit/build/components/error.svelte": () => import("./components/error.svelte"),"src/routes/index.svelte": () => import("../../src/routes/index.svelte"),"src/routes/signup.svelte": () => import("../../src/routes/signup.svelte"),"src/routes/login.svelte": () => import("../../src/routes/login.svelte")
 };
 
-const metadata_lookup = {".svelte-kit/build/components/layout.svelte":{"entry":"layout.svelte-bf355616.js","css":[],"js":["layout.svelte-bf355616.js","chunks/vendor-1fe2163d.js"],"styles":[]},".svelte-kit/build/components/error.svelte":{"entry":"error.svelte-88fb2c06.js","css":[],"js":["error.svelte-88fb2c06.js","chunks/vendor-1fe2163d.js"],"styles":[]},"src/routes/index.svelte":{"entry":"pages/index.svelte-a41fb294.js","css":[],"js":["pages/index.svelte-a41fb294.js","chunks/vendor-1fe2163d.js"],"styles":[]}};
+const metadata_lookup = {"src/routes/__layout.svelte":{"entry":"pages/__layout.svelte-20ad2563.js","css":[],"js":["pages/__layout.svelte-20ad2563.js","chunks/vendor-2c79cd28.js","chunks/authStore-1164c312.js"],"styles":[]},".svelte-kit/build/components/error.svelte":{"entry":"error.svelte-6d3b37fe.js","css":[],"js":["error.svelte-6d3b37fe.js","chunks/vendor-2c79cd28.js"],"styles":[]},"src/routes/index.svelte":{"entry":"pages/index.svelte-e16175b6.js","css":[],"js":["pages/index.svelte-e16175b6.js","chunks/vendor-2c79cd28.js","chunks/authStore-1164c312.js","chunks/navigation-51f4a605.js","chunks/singletons-12a22614.js"],"styles":[]},"src/routes/signup.svelte":{"entry":"pages/signup.svelte-d402c310.js","css":[],"js":["pages/signup.svelte-d402c310.js","chunks/vendor-2c79cd28.js","chunks/authStore-1164c312.js","chunks/navigation-51f4a605.js","chunks/singletons-12a22614.js"],"styles":[]},"src/routes/login.svelte":{"entry":"pages/login.svelte-222e3bf3.js","css":[],"js":["pages/login.svelte-222e3bf3.js","chunks/vendor-2c79cd28.js","chunks/authStore-1164c312.js","chunks/navigation-51f4a605.js","chunks/singletons-12a22614.js"],"styles":[]}};
 
 async function load_component(file) {
 	const { entry, css, js, styles } = metadata_lookup[file];

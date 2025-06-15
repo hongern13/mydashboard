@@ -309,18 +309,18 @@ function stringifyString(str) {
   result += '"';
   return result;
 }
-function noop() {
+function noop$1() {
 }
-function safe_not_equal(a, b) {
+function safe_not_equal$1(a, b) {
   return a != a ? b == b : a !== b || (a && typeof a === "object" || typeof a === "function");
 }
 Promise.resolve();
 const subscriber_queue = [];
-function writable(value, start = noop) {
+function writable(value, start = noop$1) {
   let stop;
   const subscribers = new Set();
   function set(new_value) {
-    if (safe_not_equal(value, new_value)) {
+    if (safe_not_equal$1(value, new_value)) {
       value = new_value;
       if (stop) {
         const run_queue = !subscriber_queue.length;
@@ -340,11 +340,11 @@ function writable(value, start = noop) {
   function update(fn) {
     set(fn(value));
   }
-  function subscribe(run2, invalidate = noop) {
+  function subscribe2(run2, invalidate = noop$1) {
     const subscriber = [run2, invalidate];
     subscribers.add(subscriber);
     if (subscribers.size === 1) {
-      stop = start(set) || noop;
+      stop = start(set) || noop$1;
     }
     run2(value);
     return () => {
@@ -355,7 +355,7 @@ function writable(value, start = noop) {
       }
     };
   }
-  return { set, update, subscribe };
+  return { set, update, subscribe: subscribe2 };
 }
 function hash(value) {
   let hash2 = 5381;
@@ -1286,6 +1286,8 @@ async function respond(incoming, options2, state = {}) {
     };
   }
 }
+function noop() {
+}
 function run(fn) {
   return fn();
 }
@@ -1295,6 +1297,16 @@ function blank_object() {
 function run_all(fns) {
   fns.forEach(run);
 }
+function safe_not_equal(a, b) {
+  return a != a ? b == b : a !== b || (a && typeof a === "object" || typeof a === "function");
+}
+function subscribe(store, ...callbacks) {
+  if (store == null) {
+    return noop;
+  }
+  const unsub = store.subscribe(...callbacks);
+  return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
+}
 let current_component;
 function set_current_component(component) {
   current_component = component;
@@ -1303,6 +1315,9 @@ function get_current_component() {
   if (!current_component)
     throw new Error("Function called outside component initialization");
   return current_component;
+}
+function onDestroy(fn) {
+  get_current_component().$$.on_destroy.push(fn);
 }
 function setContext(key, context) {
   get_current_component().$$.context.set(key, context);
@@ -1363,6 +1378,11 @@ function create_ssr_component(fn) {
     },
     $$render
   };
+}
+function add_attribute(name, value, boolean) {
+  if (value == null || boolean && !value)
+    return "";
+  return ` ${name}${value === true ? "" : `=${typeof value === "string" ? JSON.stringify(escape(value)) : `"${value}"`}`}`;
 }
 function afterUpdate() {
 }
@@ -1430,9 +1450,9 @@ function init(settings = default_settings) {
     amp: false,
     dev: false,
     entry: {
-      file: assets + "/_app/start-2262c851.js",
+      file: assets + "/_app/start-9422959f.js",
       css: [assets + "/_app/assets/start-61d1577b.css"],
-      js: [assets + "/_app/start-2262c851.js", assets + "/_app/chunks/vendor-1fe2163d.js"]
+      js: [assets + "/_app/start-9422959f.js", assets + "/_app/chunks/vendor-2c79cd28.js", assets + "/_app/chunks/singletons-12a22614.js"]
     },
     fetched: void 0,
     floc: false,
@@ -1462,14 +1482,28 @@ function init(settings = default_settings) {
 const empty = () => ({});
 const manifest = {
   assets: [],
-  layout: ".svelte-kit/build/components/layout.svelte",
+  layout: "src/routes/__layout.svelte",
   error: ".svelte-kit/build/components/error.svelte",
   routes: [
     {
       type: "page",
       pattern: /^\/$/,
       params: empty,
-      a: [".svelte-kit/build/components/layout.svelte", "src/routes/index.svelte"],
+      a: ["src/routes/__layout.svelte", "src/routes/index.svelte"],
+      b: [".svelte-kit/build/components/error.svelte"]
+    },
+    {
+      type: "page",
+      pattern: /^\/signup\/?$/,
+      params: empty,
+      a: ["src/routes/__layout.svelte", "src/routes/signup.svelte"],
+      b: [".svelte-kit/build/components/error.svelte"]
+    },
+    {
+      type: "page",
+      pattern: /^\/login\/?$/,
+      params: empty,
+      a: ["src/routes/__layout.svelte", "src/routes/login.svelte"],
       b: [".svelte-kit/build/components/error.svelte"]
     }
   ]
@@ -1481,11 +1515,13 @@ const get_hooks = (hooks) => ({
   externalFetch: hooks.externalFetch || fetch
 });
 const module_lookup = {
-  ".svelte-kit/build/components/layout.svelte": () => import("./layout-2e4dc227.js"),
-  ".svelte-kit/build/components/error.svelte": () => import("./error-dca33502.js"),
-  "src/routes/index.svelte": () => import("./index-e2703cb0.js")
+  "src/routes/__layout.svelte": () => import("./__layout-e000b714.js"),
+  ".svelte-kit/build/components/error.svelte": () => import("./error-184756cf.js"),
+  "src/routes/index.svelte": () => import("./index-adacd2f3.js"),
+  "src/routes/signup.svelte": () => import("./signup-871fcb78.js"),
+  "src/routes/login.svelte": () => import("./login-87b40d5a.js")
 };
-const metadata_lookup = { ".svelte-kit/build/components/layout.svelte": { "entry": "layout.svelte-bf355616.js", "css": [], "js": ["layout.svelte-bf355616.js", "chunks/vendor-1fe2163d.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-88fb2c06.js", "css": [], "js": ["error.svelte-88fb2c06.js", "chunks/vendor-1fe2163d.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-a41fb294.js", "css": [], "js": ["pages/index.svelte-a41fb294.js", "chunks/vendor-1fe2163d.js"], "styles": [] } };
+const metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-20ad2563.js", "css": [], "js": ["pages/__layout.svelte-20ad2563.js", "chunks/vendor-2c79cd28.js", "chunks/authStore-1164c312.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-6d3b37fe.js", "css": [], "js": ["error.svelte-6d3b37fe.js", "chunks/vendor-2c79cd28.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-e16175b6.js", "css": [], "js": ["pages/index.svelte-e16175b6.js", "chunks/vendor-2c79cd28.js", "chunks/authStore-1164c312.js", "chunks/navigation-51f4a605.js", "chunks/singletons-12a22614.js"], "styles": [] }, "src/routes/signup.svelte": { "entry": "pages/signup.svelte-d402c310.js", "css": [], "js": ["pages/signup.svelte-d402c310.js", "chunks/vendor-2c79cd28.js", "chunks/authStore-1164c312.js", "chunks/navigation-51f4a605.js", "chunks/singletons-12a22614.js"], "styles": [] }, "src/routes/login.svelte": { "entry": "pages/login.svelte-222e3bf3.js", "css": [], "js": ["pages/login.svelte-222e3bf3.js", "chunks/vendor-2c79cd28.js", "chunks/authStore-1164c312.js", "chunks/navigation-51f4a605.js", "chunks/singletons-12a22614.js"], "styles": [] } };
 async function load_component(file) {
   const { entry, css: css2, js, styles } = metadata_lookup[file];
   return {
@@ -1502,4 +1538,4 @@ function render(request, {
   const host = request.headers["host"];
   return respond({ ...request, host }, options, { prerender });
 }
-export { create_ssr_component as c, escape as e, init as i, render as r };
+export { safe_not_equal as a, add_attribute as b, create_ssr_component as c, escape as e, init as i, noop as n, onDestroy as o, render as r, subscribe as s };
