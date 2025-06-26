@@ -1,60 +1,39 @@
 <script>
   import { signOut } from 'firebase/auth';
-
   import { auth } from '../firebase';
-
   import authStore from '../stores/authStore';
-
   import { onDestroy } from 'svelte';
-
   import { goto } from '$app/navigation';// Function for navigating to the home page
+  import Quote from '$lib/Quote.svelte'
 
 async function logout() {
-
     try {
-
       await signOut(auth);
-
       $authStore.isLoggedIn = false; //Boolean Values (true/false)
-
       $authStore.firebaseControlled = false; //Boolean Values (true/false)
-
     } catch (err) {
-
       console.log(err);
-
     }
-
   }
 
   const sub = authStore.subscribe(async ({ isLoggedIn, firebaseControlled }) => {
-
     if (!isLoggedIn && firebaseControlled) {
-
       await goto('/login');
-
     }
-
   });
 
-
 async function navigateToHome () {
-
   await goto('/');
-
 }
+  
 // Function for navigating to the blog page
 
 async function navigateToBlog () {
-
   await goto('/blogs');
-
 }
 
   onDestroy(() => {
-
     sub();
-
   });
 </script>
 
@@ -81,4 +60,22 @@ async function navigateToBlog () {
     </div>
   </div>
 </nav>
+
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-md">
+      <div class="card h-100">
+        <div class="card-header bg-dark text-white">
+          Quote of the Day
+        </div>
+        <div class="card-body">
+        <Quote/>
+        </div>
+      </div>
+    </div>
+    <div class="col-md">
+       <!--  Todo list here -->
+    </div>
+  </div>
+</div>
 
