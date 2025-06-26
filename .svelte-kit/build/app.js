@@ -22,9 +22,9 @@ export function init(settings = default_settings) {
 		amp: false,
 		dev: false,
 		entry: {
-			file: assets + "/_app/start-9422959f.js",
+			file: assets + "/_app/start-98bfee32.js",
 			css: [assets + "/_app/assets/start-61d1577b.css"],
-			js: [assets + "/_app/start-9422959f.js",assets + "/_app/chunks/vendor-2c79cd28.js",assets + "/_app/chunks/singletons-12a22614.js"]
+			js: [assets + "/_app/start-98bfee32.js",assets + "/_app/chunks/vendor-abb4a519.js",assets + "/_app/chunks/singletons-12a22614.js"]
 		},
 		fetched: undefined,
 		floc: false,
@@ -111,7 +111,7 @@ const module_lookup = {
 	"src/routes/__layout.svelte": () => import("../../src/routes/__layout.svelte"),".svelte-kit/build/components/error.svelte": () => import("./components/error.svelte"),"src/routes/index.svelte": () => import("../../src/routes/index.svelte"),"src/routes/signup.svelte": () => import("../../src/routes/signup.svelte"),"src/routes/login.svelte": () => import("../../src/routes/login.svelte")
 };
 
-const metadata_lookup = {"src/routes/__layout.svelte":{"entry":"pages/__layout.svelte-20ad2563.js","css":[],"js":["pages/__layout.svelte-20ad2563.js","chunks/vendor-2c79cd28.js","chunks/authStore-1164c312.js"],"styles":[]},".svelte-kit/build/components/error.svelte":{"entry":"error.svelte-6d3b37fe.js","css":[],"js":["error.svelte-6d3b37fe.js","chunks/vendor-2c79cd28.js"],"styles":[]},"src/routes/index.svelte":{"entry":"pages/index.svelte-e16175b6.js","css":[],"js":["pages/index.svelte-e16175b6.js","chunks/vendor-2c79cd28.js","chunks/authStore-1164c312.js","chunks/navigation-51f4a605.js","chunks/singletons-12a22614.js"],"styles":[]},"src/routes/signup.svelte":{"entry":"pages/signup.svelte-d402c310.js","css":[],"js":["pages/signup.svelte-d402c310.js","chunks/vendor-2c79cd28.js","chunks/authStore-1164c312.js","chunks/navigation-51f4a605.js","chunks/singletons-12a22614.js"],"styles":[]},"src/routes/login.svelte":{"entry":"pages/login.svelte-222e3bf3.js","css":[],"js":["pages/login.svelte-222e3bf3.js","chunks/vendor-2c79cd28.js","chunks/authStore-1164c312.js","chunks/navigation-51f4a605.js","chunks/singletons-12a22614.js"],"styles":[]}};
+const metadata_lookup = {"src/routes/__layout.svelte":{"entry":"pages/__layout.svelte-69e72629.js","css":[],"js":["pages/__layout.svelte-69e72629.js","chunks/vendor-abb4a519.js","chunks/authStore-aa942fe5.js"],"styles":[]},".svelte-kit/build/components/error.svelte":{"entry":"error.svelte-cb9d3f7b.js","css":[],"js":["error.svelte-cb9d3f7b.js","chunks/vendor-abb4a519.js"],"styles":[]},"src/routes/index.svelte":{"entry":"pages/index.svelte-6ca2f280.js","css":[],"js":["pages/index.svelte-6ca2f280.js","chunks/vendor-abb4a519.js","chunks/authStore-aa942fe5.js","chunks/navigation-51f4a605.js","chunks/singletons-12a22614.js"],"styles":[]},"src/routes/signup.svelte":{"entry":"pages/signup.svelte-3d51c4e3.js","css":[],"js":["pages/signup.svelte-3d51c4e3.js","chunks/vendor-abb4a519.js","chunks/authStore-aa942fe5.js","chunks/navigation-51f4a605.js","chunks/singletons-12a22614.js"],"styles":[]},"src/routes/login.svelte":{"entry":"pages/login.svelte-13de31b3.js","css":[],"js":["pages/login.svelte-13de31b3.js","chunks/vendor-abb4a519.js","chunks/authStore-aa942fe5.js","chunks/navigation-51f4a605.js","chunks/singletons-12a22614.js"],"styles":[]}};
 
 async function load_component(file) {
 	const { entry, css, js, styles } = metadata_lookup[file];

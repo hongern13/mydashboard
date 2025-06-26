@@ -4,7 +4,9 @@
   import authStore from '../stores/authStore';
   import { onDestroy } from 'svelte';
   import { goto } from '$app/navigation';// Function for navigating to the home page
-  import Quote from '$lib/Quote.svelte'
+  import Quote from '$lib/Quote.svelte';
+  import Todo from '$lib/Todo.svelte';
+  import Showtodo from '$lib/Showtodo.svelte';
 
 async function logout() {
     try {
@@ -74,7 +76,15 @@ async function navigateToBlog () {
       </div>
     </div>
     <div class="col-md">
-       <!--  Todo list here -->
+             <div class="card h-100">
+        <div class="card-header bg-dark text-white">
+          To Do List
+        </div>
+        <div class="card-body">
+          <col-md/>
+          <col-md/>
+        </div>
+      </div>
     </div>
   </div>
 </div>
