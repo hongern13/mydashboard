@@ -160,7 +160,16 @@
 
             <label for="dayInput">Day</label>
 
-            <h2>{day}</h2>
+            <h2>
+              <select bind:value={day}>
+                <option>
+                 1
+                </option>
+                <option>
+                 2
+                </option>
+              </select>
+            </h2>
 
           </div>
 
