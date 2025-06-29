@@ -82,6 +82,8 @@ async function navigateToBlog () {
         </div>
         <div class="card-body">
           <col-md/>
+          <Todo/>
+          <Showtodo/>
           <col-md/>
         </div>
       </div>
