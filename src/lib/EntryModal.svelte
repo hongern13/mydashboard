@@ -80,6 +80,9 @@
 
  });
 
+if (day > 31){
+  day = disabled
+}
 </script>
 
 <!-- This code represents a modal dialog for creating a new blog entry -->
@@ -161,14 +164,7 @@
             <label for="dayInput">Day</label>
 
             <h2>
-              <select bind:value={day}>
-                <option>
-                 1
-                </option>
-                <option>
-                 2
-                </option>
-              </select>
+              <input type="number" id="day">
             </h2>
 
           </div>
