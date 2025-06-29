@@ -87,10 +87,10 @@
     }
   }
   
-  if(month > 13 || month < 0){
-    day.disabled = true
+  if(month > 12 || month < 0){
+    month.disabled = true
     else{
-     day.disabled = false
+     month.disabled = false
     }
   }
   
