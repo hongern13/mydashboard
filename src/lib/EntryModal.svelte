@@ -80,6 +80,20 @@
 
  });
 
+  if(day > 31 || day < 0){
+    day.disabled = true
+    else{
+     day.disabled = false
+    }
+  }
+  
+  if(month > 13 || month < 0){
+    day.disabled = true
+    else{
+     day.disabled = false
+    }
+  }
+  
 </script>
 
 <!-- This code represents a modal dialog for creating a new blog entry -->
@@ -180,7 +194,9 @@
 
             <label for="yearInput">Year</label>
 
-            <h2>{year}</h2>
+            <h2>
+              <input type="year" id="year" bind:value={year}>
+            </h2>
 
           </div>
 
