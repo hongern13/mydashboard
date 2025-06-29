@@ -1,19 +1,4 @@
-import { c as create_ssr_component, e as escape, s as subscribe, o as onDestroy, v as validate_component } from "./app-747dfeb6.js";
-import { _ as _registerComponent, r as registerVersion, C as Component, L as Logger, a as LogLevel, S as SDK_VERSION, F as FirebaseError } from "./firebase-f379b5e1.js";
-import { a as authStore, g as goto } from "./navigation-c4464c84.js";
-import "stream";
-import "http";
-import "url";
-import "punycode";
-import "https";
-import "zlib";
-const Quote = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let quote = "Patience is the key to a good life.";
-  let author = "Unknown";
-  return `<main>\xA0 <button>Get me a quote!</button>
-\xA0 <h1>${escape(quote)}</h1>
-\xA0 <p>- ${escape(author)} -</p></main>`;
-});
+import { _ as _registerComponent, r as registerVersion, C as Component, a as _getProvider, g as getApp, L as Logger, b as LogLevel, S as SDK_VERSION, F as FirebaseError } from "./firebase-54d5ee67.js";
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 var k, goog = goog || {}, l = commonjsGlobal || self;
 function aa() {
@@ -3166,6 +3151,9 @@ class Ba extends ba {
     return this._firestoreClient || Ka(this), this._firestoreClient.terminate();
   }
 }
+function Ua(e = getApp()) {
+  return _getProvider(e, "firestore").getImmediate();
+}
 function Ka(t2) {
   var e;
   const n = t2._freezeSettings(), s = function(t3, e2, n2, s2) {
@@ -3183,32 +3171,4 @@ function Ka(t2) {
     }, n), i._setSettings(n), i;
   }, "PUBLIC")), registerVersion(D, "3.4.14", t2), registerVersion(D, "3.4.14", "esm2017");
 }();
-const Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let $$unsubscribe_authStore;
-  $$unsubscribe_authStore = subscribe(authStore, (value) => value);
-  const sub = authStore.subscribe(async ({ isLoggedIn, firebaseControlled }) => {
-    if (!isLoggedIn && firebaseControlled) {
-      await goto("/login");
-    }
-  });
-  onDestroy(() => {
-    sub();
-  });
-  $$unsubscribe_authStore();
-  return `
-
-<nav class="${"navbar navbar-expand-lg navbar-dark bg-dark"}"><div class="${"container-fluid"}"><h1 class="${"navbar-brand"}">My Dashboard</h1>
-    <button class="${"navbar-toggler"}" type="${"button"}" data-bs-toggle="${"collapse"}" data-bs-target="${"#navbarSupportedContent"}" aria-controls="${"navbarSupportedContent"}" aria-expanded="${"false"}" aria-label="${"Toggle navigation"}"><span class="${"navbar-toggler-icon"}"></span></button>
-    <div class="${"collapse navbar-collapse"}" id="${"navbarSupportedContent"}"><ul class="${"navbar-nav mr-auto"}"><li class="${"nav-item"}"><a class="${"nav-link"}">Home</a></li>
-        <li class="${"nav-item"}"><a class="${"nav-link"}">Blogs</a></li></ul>
-      <div class="${"d-flex ms-auto"}"><button class="${"btn btn-danger"}">Sign Out</button></div></div></div></nav>
-
-<div class="${"container-fluid mt-5"}"><div class="${"row"}"><div class="${"col-md"}"><div class="${"card h-100"}"><div class="${"card-header bg-dark text-white"}">Quote of the Day
-        </div>
-        <div class="${"card-body"}">${validate_component(Quote, "Quote").$$render($$result, {}, {}, {})}</div></div></div>
-    <div class="${"col-md"}">\xA0 \xA0 \xA0 <div class="${"card h-100"}"><div class="${"card-header bg-dark text-white"}">To Do List
-        </div>
-        <div class="${"card-body"}"><col-md></col-md>
-          <col-md></col-md></div></div></div></div></div>`;
-});
-export { Routes as default };
+export { Ua as U };

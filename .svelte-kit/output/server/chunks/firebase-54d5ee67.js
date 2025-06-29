@@ -83625,4 +83625,4 @@ const firebaseConfig = {
 };
 const firebase = initializeApp(firebaseConfig);
 getAuth(firebase);
-export { Component as C, FirebaseError as F, Logger as L, SDK_VERSION as S, _registerComponent as _, LogLevel as a, registerVersion as r };
+export { Component as C, FirebaseError as F, Logger as L, SDK_VERSION as S, _registerComponent as _, _getProvider as a, LogLevel as b, getApp as g, registerVersion as r };
