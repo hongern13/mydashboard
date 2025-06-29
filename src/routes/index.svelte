@@ -7,6 +7,7 @@
   import Quote from '$lib/Quote.svelte';
   import Todo from '$lib/Todo.svelte';
   import Showtodo from '$lib/Showtodo.svelte';
+  import Timetable from '$lib/Timetable.svelte'
 
 async function logout() {
     try {
@@ -85,6 +86,21 @@ async function navigateToBlog () {
           <Todo/>
           <Showtodo/>
           <col-md/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt-5 mb-5">
+  <div class="row">
+    <div class="col-md">
+      <div class="card">
+        <div class="card-header bg-dark text-white">
+          Timetable
+        </div>
+        <div class="card-body">
+         <Timetable/>
         </div>
       </div>
     </div>
