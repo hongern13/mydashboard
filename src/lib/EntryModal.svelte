@@ -80,19 +80,8 @@
 
  });
 
-  if(day > 31 || day < 0){
-    day.disabled = true
-    else{
-     day.disabled = false
-    }
-  }
-  
-  if(month > 12 || month < 0){
-    month.disabled = true
-    else{
-     month.disabled = false
-    }
-  }
+  $: dayDisabled = (day > 31 || day < 1);
+  $: monthDisabled = (month > 12 || month < 1);
   
 </script>
 
@@ -175,9 +164,9 @@
             <label for="dayInput">Day</label>
 
             <h2>
-              <input type="number" id="day" bind:value={day}>
+              <input type="number" id="day" bind:value={day} disabled={dayDisabled}>
             </h2>
-
+            
           </div>
 
           <div class="col">
@@ -185,7 +174,7 @@
             <label for="monthInput">Month</label>
 
             <h2>
-              <input type="number" id="month" bind:value={month}>
+             <input type="number" id="month" bind:value={month} disabled={monthDisabled}>
             </h2>
 
           </div>
