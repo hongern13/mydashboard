@@ -107,3 +107,19 @@ async function navigateToBlog () {
   </div>
 </div>
 
+<div class="container-fluid mt-5 mb-5">
+  <div class="row">
+    <div class="col-md">
+      <div class="card">
+        <div class="card-header bg-dark text-white">
+          Time
+        </div>
+        <div class="card-body">
+         <iframe src="https://free.timeanddate.com/clock/i9yw10dp/n122/fn2/fs39/tct/pct/ftb/bas2/bat4/bacf00/pa5/th2/ta1" frameborder="0" width="382" height="69" allowtransparency="true"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
