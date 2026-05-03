@@ -1,0 +1,226 @@
+{
+  "intents": [
+    {
+      "intent": "Greeting",
+      "text": [
+        "Hi",
+        "Hi there",
+        "Hola",
+        "Hello",
+        "Hello there",
+        "Good morning",
+        "Good afternoon",
+        "Good evening",
+        "Hey",
+        "Hey there"
+      ],
+      "responses": [
+        "Hi human, please tell me your Alex user",
+        "Hello human, please tell me your Alex user",
+        "Hola human, please tell me your Alex user",
+        "Hey there! How can I help you today?"
+      ]
+    },
+    {
+      "intent": "Goodbye",
+      "text": [
+        "Bye",
+        "Goodbye",
+        "See you later",
+        "See you",
+        "Take care",
+        "Catch you later",
+        "I have to go",
+        "Talk to you later"
+      ],
+      "responses": [
+        "Goodbye! Have a great day!",
+        "See you later!",
+        "Take care! Come back soon!",
+        "Bye! It was nice talking to you!"
+      ]
+    },
+    {
+      "intent": "Thanks",
+      "text": [
+        "Thank you",
+        "Thanks",
+        "Thanks a lot",
+        "Thank you so much",
+        "Thanks for your help",
+        "I appreciate it",
+        "Much appreciated"
+      ],
+      "responses": [
+        "You're welcome!",
+        "Happy to help!",
+        "Anytime!",
+        "My pleasure!",
+        "Glad I could help!"
+      ]
+    },
+    {
+      "intent": "Apology",
+      "text": [
+        "Sorry",
+        "I am sorry",
+        "I apologize",
+        "My apologies",
+        "Sorry for the trouble",
+        "I am very sorry for troubling you",
+        "I apologize for my mistake"
+      ],
+      "responses": [
+        "No problem at all!",
+        "It's okay, don't worry about it!",
+        "No worries!",
+        "That's alright!"
+      ]
+    },
+    {
+      "intent": "Name",
+      "text": [
+        "What is your name",
+        "What's your name",
+        "Who are you",
+        "Tell me your name",
+        "What do they call you",
+        "What should I call you"
+      ],
+      "responses": [
+        "I'm Alex, your friendly chatbot!",
+        "My name is Alex!",
+        "You can call me Alex!",
+        "I go by Alex!"
+      ]
+    },
+    {
+      "intent": "Age",
+      "text": [
+        "How old are you",
+        "What is your age",
+        "When were you born",
+        "What's your age",
+        "How long have you been around"
+      ],
+      "responses": [
+        "I'm a timeless AI, but I was created recently!",
+        "Age is just a number for bots like me!",
+        "I'm forever young!",
+        "I was born when you first ran my code!"
+      ]
+    },
+    {
+      "intent": "TimeQuery",
+      "text": [
+        "What time is it",
+        "What's the time",
+        "Tell me the time",
+        "Current time",
+        "What is the current time",
+        "Do you have the time"
+      ],
+      "responses": [
+        "f\"It's {datetime.now().strftime('%H:%M:%S')}\"",
+        "f\"The current time is {datetime.now().strftime('%H:%M:%S')}\"",
+        "f\"Right now it's {datetime.now().strftime('%I:%M %p')}\""
+      ]
+    },
+    {
+      "intent": "Jokes",
+      "text": [
+        "Tell me a joke",
+        "Make me laugh",
+        "Say something funny",
+        "Tell me something funny",
+        "I want to hear a joke",
+        "Do you know any jokes"
+      ],
+      "responses": [
+        "Why don't scientists trust atoms? Because they make up everything!",
+        "Why did the scarecrow win an award? He was outstanding in his field!",
+        "What do you call a fake noodle? An impasta!",
+        "Why don't eggs tell jokes? They'd crack each other up!"
+      ]
+    },
+    {
+      "intent": "Help",
+      "text": [
+        "Help",
+        "I need help",
+        "Can you help me",
+        "Help me please",
+        "I need assistance",
+        "What can you do"
+      ],
+      "responses": [
+        "I can help you with greetings, tell jokes, give you the time, and have a conversation!",
+        "Sure! I'm here to chat and answer your questions!",
+        "I'd be happy to help! Just ask me anything!",
+        "I can tell jokes, share the time, or just chat with you!"
+      ]
+    },
+    {
+      "intent": "Weather",
+      "text": [
+        "What's the weather like",
+        "How's the weather",
+        "Is it going to rain",
+        "What's the forecast",
+        "Tell me about the weather"
+      ],
+      "responses": [
+        "I don't have real-time weather data, but I hope it's nice where you are!",
+        "I can't check the weather, but you can try a weather app!",
+        "Weather checking isn't my specialty, but I'm great at chatting!"
+      ]
+    },
+    {
+      "intent": "Compliment",
+      "text": [
+        "You're smart",
+        "You're great",
+        "You're awesome",
+        "Good job",
+        "Well done",
+        "You're helpful",
+        "Nice work"
+      ],
+      "responses": [
+        "Thank you! That means a lot!",
+        "Aww, you're too kind!",
+        "Thanks! I try my best!",
+        "That's so nice of you to say!"
+      ]
+    },
+    {
+      "intent": "Feeling",
+      "text": [
+        "How are you",
+        "How are you doing",
+        "How do you feel",
+        "Are you okay",
+        "What's up",
+        "How's it going"
+      ],
+      "responses": [
+        "I'm doing great, thanks for asking!",
+        "I'm just a bot, but I'm functioning perfectly!",
+        "All systems go! How about you?",
+        "I'm wonderful! Ready to help you!"
+      ]
+    },
+    {
+      "intent": "noanswer",
+      "text": [
+        "unknown query placeholder"
+      ],
+      "responses": [
+        "I'm not sure I understand. Could you rephrase that?",
+        "I don't have an answer for that, but I'm always learning!",
+        "Hmm, I'm not sure about that. Try asking something else!",
+        "That's beyond my knowledge. Can I help with something else?"
+      ]
+    }
+  ]
+}
